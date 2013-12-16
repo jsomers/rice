@@ -45,10 +45,10 @@ if RUBY_PLATFORM =~ /darwin1[0-2]/
   puts "*" * 80
 
   other_opts = "--disable-dependency-tracking"
-  env = "ARCHFLAGS='-arch #{arch}' CPPFLAGS='-arch #{arch}'"
+  env = "ARCHFLAGS='-arch x86_64' CPPFLAGS='-arch x86_64'"
 elsif RUBY_PLATFORM =~ /darwin9/
   arch = `uname -p`.chomp
-  env = "ARCHFLAGS='-arch #{arch}' CPPFLAGS='-arch #{arch}'"
+  env = "ARCHFLAGS='-arch x86_64' CPPFLAGS='-arch x86_64'"
 end
 
 system "sh bootstrap"
