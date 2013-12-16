@@ -39,6 +39,10 @@ if RUBY_PLATFORM =~ /darwin1[0-2]/
   if arch == "universal"
     arch = `uname -m`.strip
   end
+  
+  puts "*" * 80
+  puts "here"
+  puts "*" * 80
 
   other_opts = "--disable-dependency-tracking"
   env = "ARCHFLAGS='-arch #{arch}' CPPFLAGS='-arch #{arch}'"
@@ -48,4 +52,4 @@ elsif RUBY_PLATFORM =~ /darwin9/
 end
 
 system "sh bootstrap"
-system "#{env} sh configure --with-ruby=#{with_ruby} --prefix=#{prefix_dir} #{other_opts}"
+system "#{env} sh configure --with-ruby=#{with_ruby} --prefix=#{prefix_dir} --host=x86_64 #{other_opts}"
